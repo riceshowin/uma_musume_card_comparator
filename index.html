@@ -5,7 +5,6 @@
     <title>Support Cards & Skills</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Global */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -70,8 +69,13 @@
         }
 
         .dropdown-list div:hover {
-            background-color: #eef3fc;
+            background-color: #0059fd;
             transform: scale(1.02);
+        }
+
+        .dropdown-list div.selected {
+            background-color: #ffffff !important; /* highlight selection */
+            color: #000;
         }
 
         .dropdown-list .sr {
@@ -124,8 +128,8 @@
             margin-left: 8px;
         }
 
-        .sr-badge { background-color: #ffd700; }   /* gold */
-        .ssr-badge { background-color: #00bfff; }  /* light blue */
+        .sr-badge { background-color: #ffd700; }   
+        .ssr-badge { background-color: #005875; }  
 
         .skill-card p {
             margin: 3px 0;

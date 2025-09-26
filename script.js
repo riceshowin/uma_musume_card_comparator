@@ -59,7 +59,6 @@ function updateDropdown(filter = "") {
             const div = document.createElement("div");
             div.textContent = card.title;
 
-            // Option color based on rarity
             if (card.title.includes("SSR")) div.classList.add("ssr");
             else if (card.title.includes("SR")) div.classList.add("sr");
 
@@ -82,10 +81,14 @@ async function init() {
     ]);
 
     const input = document.getElementById("cardInput");
-    input.addEventListener("input", () => {
-        updateDropdown(input.value);
-    });
 
+    // Show dropdown on focus
+    input.addEventListener("focus", () => updateDropdown(input.value));
+
+    // Filter dropdown as user types
+    input.addEventListener("input", () => updateDropdown(input.value));
+
+    // Close dropdown when clicking outside
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".dropdown-container")) {
             document.getElementById("dropdownList").style.display = "none";

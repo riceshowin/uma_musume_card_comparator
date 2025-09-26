@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Cards & Skills</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2em;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        /* Dropdown */
+        .dropdown-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .dropdown-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .dropdown-input:focus {
+            border-color: #7aa6ff;
+        }
+
+        .dropdown-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border-radius: 0 0 10px 10px;
+            max-height: 250px;
+            overflow-y: auto;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 100;
+        }
+
+        .dropdown-list div {
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            font-weight: 500;
+        }
+
+        .dropdown-list div:hover {
+            background-color: #eef3fc;
+            transform: scale(1.02);
+        }
+
+        .dropdown-list .sr {
+            background-color: #ffd70033; /* gold tint */
+        }
+
+        .dropdown-list .ssr {
+            background-color: #add8e633; /* light blue tint */
+        }
+
+        /* Skills container */
+        #skillsContainer {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media(min-width: 700px){
+            #skillsContainer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .skill-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        .skill-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .rarity-badge {
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 5px;
+            padding: 2px 6px;
+            margin-left: 8px;
+        }
+
+        .sr-badge { background-color: #ffd700; }   /* gold */
+        .ssr-badge { background-color: #00bfff; }  /* light blue */
+
+        .skill-card p {
+            margin: 3px 0;
+            font-size: 0.95em;
+        }
+
+        .skill-card p strong {
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+    <h1>Support Cards Skills Viewer</h1>
+    <div class="container">
+        <div class="dropdown-container">
+            <input type="text" id="cardInput" class="dropdown-input" placeholder="Type to select a support card...">
+            <div id="dropdownList" class="dropdown-list"></div>
+        </div>
+
+        <div id="skillsContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
